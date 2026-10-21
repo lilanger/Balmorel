@@ -132,8 +132,8 @@ $if not EXIST '../data/DEUSER.inc' $INCLUDE '../../base/data/DEUSER.inc';
 $include "../../base/addons/_hooks/deuseradditions.inc"
 
 SET DHUSER             "Heat demand user groups. Set must include element RESH for holding demand not included in any other user group"  %semislash%
-$if     EXIST '../data/DEUSER.inc' $INCLUDE         '../data/DHUSER.inc';
-$if not EXIST '../data/DEUSER.inc' $INCLUDE '../../base/data/DHUSER.inc';
+$if     EXIST '../data/DHUSER.inc' $INCLUDE         '../data/DHUSER.inc';
+$if not EXIST '../data/DHUSER.inc' $INCLUDE '../../base/data/DHUSER.inc';
 %semislash%;
 
 SET FFF                "Fuels"  %semislash%
@@ -171,11 +171,15 @@ SET TECH_GROUP     "Technology Groups" %semislash%
 $if     EXIST '../data/TECH_GROUP.inc' $INCLUDE      '../data/TECH_GROUP.inc';
 $if not EXIST '../data/TECH_GROUP.inc' $INCLUDE '../../base/data/TECH_GROUP.inc';
 %semislash%;
+*------------- Any TECH_GROUP additions for addon to be placed here: ----------------
+$include "../../base/addons/_hooks/tech_groupadditions.inc"
 
 PARAMETER TECH_GROUP_VALUE(TECH_GROUP)         "Technology Groups value" %semislash%
 $if     EXIST '../data/TECH_GROUP_VALUE.inc' $INCLUDE      '../data/TECH_GROUP_VALUE.inc';
 $if not EXIST '../data/TECH_GROUP_VALUE.inc' $INCLUDE '../../base/data/TECH_GROUP_VALUE.inc';
 %semislash%;
+*------------- Any TECH_GROUP_VALUE additions for addon to be placed here: ----------------
+$include "../../base/addons/_hooks/tech_group_valueadditions.inc"
 
 PARAMETER TECHGROUP_DEUSER(TECH_GROUP,DEUSER) "assignment of tech groups into user groups for electricity"   %semislash%
 $if     EXIST '../data/TECHGROUP_DEUSER.inc' $INCLUDE      '../data/TECHGROUP_DEUSER.inc';
