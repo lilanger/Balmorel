@@ -125,7 +125,7 @@ OPTIONS ITERLIM=2000000000;
 * OPTCR controls the precision of the solution. If optcr is greater than 0,
 * a good, not necessarily optimal solution will be accepted.
 * Default value is 0.10.
-option optcr = 0.000001
+option optcr = 0.1
 
 * RESLIM specifies the maximum time (seconds) that the computer can run during execution of a solver.
 * Default value is 1000.
